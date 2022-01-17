@@ -1,4 +1,4 @@
-let player = [{id: 7, name: 'Mahendra'}]
+let player = [{ id: 7, name: 'Mahendra' }]
 
 player.loc = "Mumbai"
 console.log(player);
