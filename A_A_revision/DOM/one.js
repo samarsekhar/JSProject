@@ -1,9 +1,9 @@
-function getDate() {
-    let a = document.getElementById('sam');
-    a.innerHTML = "Hello World"
+function getData() {
+    let x = document.getElementById('abc');
+    x.innerHTML = "Hello , Good Morning"
 
-    document.getElementById('Alpha').innerHTML = "I Do Everything "
-
-    let name = document.getElementById('sek').innerHTML;
+    let name = document.getElementById('xyz').innerHTML;
     console.log(name);
-}   
+
+    document.getElementById('rajni').innerHTML = name
+}
