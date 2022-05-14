@@ -31,3 +31,12 @@ const superAob = (data, victim) => {
 }
 
 console.log(superAob(aob, "framework"));
+
+
+// output:-
+// [
+//     { victim: 'React.JS', count: 2 },
+//     { victim: 'Angular', count: 1 },
+//     { victim: 'Vue.JS', count: 1 },
+//     { victim: 'JavaScript', count: 1 }
+// ]
