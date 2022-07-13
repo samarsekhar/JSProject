@@ -1,0 +1,12 @@
+With an arrow function:
+
+No more function keywords are need, and parenthesis are optional as well as curly braces.
+Arrow functions make code shorter, more concise, and less verbose.
+The keyword return would indeed be optional. The Arrow function has an implicit return. Thus no curly braces. 
+If you are using the curly braces, you have to use the return statement.
+Arrow functions are not attached to an identifier (the function name). To call or reuse them, your need to 
+assign them to a variable.
+They are frequently used in callback chaining, promise chaining, array methods, and situations where 
+anonymous (the function has no name) functions would be useful.
+They handle this operator a lot more clearly. The Arrow functions shine most whenever you need this to be 
+attached to the context and not its own function.

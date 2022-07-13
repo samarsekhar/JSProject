@@ -1,0 +1,15 @@
+Arrow Function Definition.
+
+-> An Arrow function expression is a compact alternative to a traditional function expression,
+but is limited and can't be used in all situations.
+
+-> Does not have its own bindings to this or supper, and should not be used as methods.
+
+-> Arrow function allow us to write shorter function syntax:
+   let myFunction = (a,b) => a*b;
+
+-> An Arrow function makes am implicit retrun; tn this case, the return keyword will be optional.
+-> rest and destruting parameters can be implemeted using an arrow function.
+-> They both need parentheses.
+-> Arrow function can never be a constructor.
+
