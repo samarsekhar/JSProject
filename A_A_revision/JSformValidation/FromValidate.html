@@ -1,0 +1,29 @@
+<!--- Validating the form on form submit. The user will not be forwarded to the next page given values are correct ? --->
+
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        function validateform() {
+            var name = document.myform.name.value;
+            var password = document.myform.password.value;
+
+            if (name == null || name == "") {
+                alert("Name can't be blank");
+                return false;
+            } else if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+        }
+    </script>
+    <form name="myform" method="post" action="txt.html" target="_blank" onsubmit="return validateform()">
+        UserName: <input type="text" name="name"> <br> <br>
+        Password: <input type="password" name="password"> <br> <br>
+        <input type="submit" value="register">
+    </form>
+</body>
+
+</html>
