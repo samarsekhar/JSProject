@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        div {
+            margin: 0px auto;
+            width: 35%;
+            padding: 30px;
+            font-size: 20px;
+            background-color: #006699;
+
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #003399;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #2F4F4F;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        div label {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function validateform() {
+            var fname = document.regform.firstname.value;
+            var lname = document.regform.lastname.value;
+            var gender = document.regform.gender;
+            var country = document.regform.country;
+
+            if (fname == null || fname == "") {
+                alert("First name cannot be blank");
+                return false;
+            }
+            else if (lname == null || lname == "") {
+                alert("Last name connot be blank");
+                return false;
+            }
+            else if ((gender[0].checked == false) && (gender[1].checked == false)) {
+                alert("Please enter your gender");
+                return false;
+            }
+            else if (country.selectedIndex == 0) {
+                alert("Enter your Country");
+                return false;
+            }
+        }
+    </script>
+    <h1>Registration Form</h1>
+    <div>
+        <form name="regform" method="post" onsubmit="validateform()">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Enter First Name">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Enter Last Name">
+            <label>Gender</label><br />
+            <input type="radio" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" value="female">
+            <label for="female">Female</label><br />
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="usa">USA</option>
+                <option value="india">INDIA</option>
+                <option value="japan">Japan</option>
+                <option value="canada">Canada</option>
+                <option value="russia">Russia</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
