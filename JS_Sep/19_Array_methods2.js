@@ -44,7 +44,7 @@ console.log(deletedValue);    // [ 3 ]
 
 // slice() method
 // out a piece from an array. It creates a new array
-let n = [1, 2, 3, 4, 5]
-//let newn = n.slice(2)       // [ 3, 4, 5]
-let newn = n.slice(1, 3)
-console.log(newn);            // [1, 3]
+let num1 = [1, 2, 3, 4, 5]
+//let newNum1 = num1.slice(2)       // [ 3, 4, 5]
+let newNum1 = num1.slice(1, 3)
+console.log(newNum1);            // [1, 3]
