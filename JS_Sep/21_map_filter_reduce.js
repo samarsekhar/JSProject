@@ -1,4 +1,5 @@
 // Array map method
+// Creates a new array by performing some operation on each array element.
 let arr = [35, 36, 37, 38, 39, 40];
 let a = arr.map((value, index, array) => {
     //console.log(value, index, array)
@@ -11,6 +12,7 @@ console.log(a);
 
 
 // Array filter method
+// filter an array with values that passes a test.
 let arr2 = [11, 22, 33, 44, 55, 66]
 let a2 = arr2.filter((i)=> {
     return i < 45
@@ -22,6 +24,7 @@ console.log(a2);
 
 
 // Array reduce method
+// reduces an array to a single value.
 let arr3 = [10, 22, 34, 46, 58, 70]
 let reduce_func = (s, p) => {
     return s + p
