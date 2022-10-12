@@ -1,5 +1,7 @@
 /* JAVASCRIPT */
 
+const { faUndo } = require("@fortawesome/free-solid-svg-icons");
+
 // Q-1
 function test() {
     const person = {
@@ -138,3 +140,109 @@ for (let i=0; i<5; i++) {
 }
 console.log(arrBlock[0]());       // 0
 console.log(arrBlock[4]());       // 4  
+
+
+// Q-7
+function test7() {
+    let person = { name: "sekhar" };
+    const personArray = [person];
+    person = null;
+    console.log(personArray);
+
+    //personArray = [];
+    console.log(personArray);
+}
+test7();
+/* [ { name: "sekhar" } ] , TyperError because person = null will only disconnect the person variable from value { name: "sekhar"} which is stored in memory, personArray[0] will still point to same value { name: "sekhar"}.
+  and personArray = [] at this line TyperError as const variable can't be redeclared and throws Uncaught TypeError: Assignment to constant variable.
+ */
+
+
+// Q-8 
+function test8() {
+    const value = { number : 10};
+
+    const addition = (x = { ...value }) => {
+        console.log((x.number += 5));
+    };
+
+    addition();
+    addition();
+    addition(value);
+    addition(value);
+}
+test8();
+/* 15 15 15 20 */
+/* 15, 15, 15, 20 because when we call addition function 3rd time with passing value object as an argument, then x will take value as pass by reference and will update number property of original object ( value in this case ) to 15.  
+  Hence, while calling addition function 4th time will console 15 + 5 => 20. */
+
+
+// Q-9
+function test9() {
+    function makePerson() {
+        return {
+            userName: "Sekhar",
+            ref: this,
+        };
+    }
+    const person = makePerson();
+    console.log(person.ref.userName);      // undefined
+
+
+    // We can get "Jayesh" as an output by doing small change in above question :-
+    function makePerson2() {
+        return {
+            userName: "Sahoo",
+            // we have assigned a function to ref property of an object, and function's "this" will point to the returned object.
+            ref: function () {
+                return this;
+            },
+        };
+    }
+
+    const person2 = makePerson2();
+    console.log(person2.ref().userName);      // Sahoo
+}
+
+test9();
+
+/* undefined because "this" keyword in makePerson function will refer to the window object,
+  person.ref.userName is same as Window.userName and no property named with userName is present in window object, Hence It will console undefined. */
+
+
+// Q-10
+function test10() {
+    const user = {
+        userName: "Anissa",
+        displayName: function() {
+            console.log(this.userName);     // undefined
+        },
+    };
+    setTimeout(user.displayName, 1000);
+    /*undefined because setTimeout is using user.displayName as a callback function rather than object method.
+      callback function's "this" will refer to the window object and It will console undefined as there is no property such as userName in the window object
+    */
+
+    // we can get "Anissa" as an output by wrapping the user.displayName() inside a function:-
+    setTimeout(function () {
+        user.displayName();                 // Anissa   here, displayName is called by user object ( object method ). Hence, "this" will refer to user object.
+    }, 1000);
+}
+test10();
+
+
+// Q-11
+function test11() {
+    const series = { name: "JavaScript Ultimate" };
+
+    function getStatus(postNumber) {
+        return `${this.name} ${postNumber}`;
+    }
+
+    console.log(getStatus.call(series, 50));       // JavaScript Ultimate 50
+    console.log(getStatus.bind(series, 50));       // [Function: bound getStatus]
+
+    console.log(getStatus.call(series, 50));       // JavaScript Ultimate 50
+    console.log(getStatus.bind(series, 50)());     // JavaScript Ultimate 50
+}
+test11();
