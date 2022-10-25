@@ -311,6 +311,33 @@ function test13() {
 test13();    //3
 
 
+// Q-14
+function test14() {
+    var name = "Pooja";
+
+    function displayName() {
+        console.log(this.name);
+    }
+
+    const person = {
+        name: "Sahoo",
+        method: displayName.bind(this),
+    };
+
+    person.method();
+
+    // Get Sahoo as an output by wrapping displayName.bind(this) inside a function because "this" inside the normal function of an object refers to the object :-
+
+    const person2 = {
+        name: "Panigrahi",
+        method: function () {
+            return displayName.bind(this);        //"this" refers to the person2 object
+        },
+    };
+    person2.method()();        //Panigrahi
+}
+test14();
+
 
 /*
           👍 💡 💖 😀 🌟 👇 👉
