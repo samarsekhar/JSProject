@@ -231,6 +231,7 @@ function test10() {
 test10();
 
 
+
 // Q-11
 function test11() {
     const series = { name: "JavaScript Ultimate" };
@@ -246,3 +247,71 @@ function test11() {
     console.log(getStatus.bind(series, 50)());     // JavaScript Ultimate 50
 }
 test11();
+
+/* JavaScript Ultimate 50, [Function: bound getSatus] because call, apply and bind methods are used for function borrowing in JavaScript.   
+  The call method immediately invokes the borrowed function where as bind method does not invoke the borrowed function immediately, bind method returns a copy of borrowed function
+  that can be called later on with or without passing new arguments to it.
+ */
+
+
+
+// Q-12
+function test12() {
+    var name = "Pooja";
+
+    function displayName() {
+        console.log(this.name);
+    }
+
+    const person = {
+        name : "Hegde",
+        method(fn) {
+            fn();
+        },
+    };
+
+    person.method(displayName);
+
+    /* Pooja because displayName function is passed to person object method as a callback function.
+       "this" keyword in displayName function will refer to window object and window object has a property "name" with value "Pooja".
+       Hence, It will console Pooja as an output. 
+    */
+    
+    // get Hegde as an output by attaching call method with fn() inside person method :-
+    const person2 = {
+        name: "Hegde",
+        method(fn) {
+            fn.call(this); // borrowing function and passing "this" of person2 object.
+        },
+    };
+
+    person2.method(displayName);   // Hegde
+};
+test12();
+
+
+
+// Q-13
+function test13() {
+    var length = 4;
+
+    function callback() {
+        console.log(this.length);
+    }
+
+    const object = {
+        length: 5,
+        method: function () {
+            arguments[0]();
+        },
+    };
+
+    object.method(callback, 2, 3);
+}
+test13();    //3
+
+
+
+/*
+          👍 💡 💖 😀 🌟 👇 👉
+*/
