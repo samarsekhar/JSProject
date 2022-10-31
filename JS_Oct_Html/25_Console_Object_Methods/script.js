@@ -37,4 +37,4 @@ console.log('transportation log');
 console.log(transportation);
 
 
-console.table(['apples','oranges','bana']);
+console.table(['apples','oranges','bananas']);
