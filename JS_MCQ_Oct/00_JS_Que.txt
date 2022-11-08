@@ -1,0 +1,63 @@
+1. What is typeof []
+Answer: Object. Actually Array is derived from Object. If you want to check array use Array.isArray(arr).
+
+2. What is typeof arguments 
+Answer: Object. arguments are array like but not array. it has length, can access by index but can't push pop, etc.
+
+3. What is the value of typeof null
+Answer: "object"
+
+4. what is console.log(true+false)
+Answer: 1 here true -->> 1 & false -->> 0 then 1 + 0 -->> 1
+
+5. What is 2+true
+Answer: 3 , the plus operator between a number add a boolean or two boolean will convert boolean to number. Hence, true convert to 1 and you get result of 2+1
+
+6. What is "2"+true
+Answer: 2true here string concatination happer "2"+"true" -->> 2true
+
+7. What is the value of -'34'+10
+Answer: -24. minus(-) in front of a string is an unary operator that will convert the string to a number and will make it negative. Hence, '-34' becomes, -34 and then plus (+) will perform simple addition as both the operands are number.
+
+8. What is the value of +"dude"
+Answer: NaN. The plus (+)  operator in front of a string ia an unary operator that will try to convert the string to number. Here, JavaScript will fail to convert the "dude" to a number and will produce NaN.
+
+9. If you have var y = 1, x = y = typeof x; What is the value of x ?
+Answer: "undefined"
+
+10. for var a = (2, 3, 5); What is the value of a ?
+Answer: 5. The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand.
+
+11. for var a = (1,5 -1) * 2 What is the value of a ?
+Answer: 8
+
+12. What is the value of !'bang'
+Answer: false. ! is NOT.
+
+13. What is the value of parseFloat('12.3.4')
+Answer: 12.3 
+
+14. What is the value of Math.max([2,3,4,5]);
+Answer: NaN
+
+15. typeof(NaN)
+Answer: number
+
+16. null == undefined
+Answer: true
+
+17. NaN == undefined
+Answer: false
+
+18. null == NaN
+Answer: false
+
+19. If var a = 2, b = 3 what would be value of a && b
+Answer: 3
+
+20. What is -5%2
+Answer: -1 , The result of remainder always get the symbol of first operand.
+
+21. What is an Operator ?
+Answer: A simple expression 4+5 is equal to 9. Here 4 and 5 are called operands and "+" is called the operator. JS supports the following types of operators. Arithmetic Operator, Comparison Operators, Logical(or Relational)Operators, Assignment Operators, Conditional(or ternary) Operators.
+
