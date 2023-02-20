@@ -1,0 +1,249 @@
+Q1 -
+function isDivisibleBy7(n) {
+    if (n % 7 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// test the function
+console.log(isDivisibleBy7(49)); // true
+console.log(isDivisibleBy7(33)); // false
+//
+function isDivisibleBy7(n) {
+    return n % 7 === 0 ? true : false;
+}
+
+Q2 - 
+function isMultipleOf3(n) {
+    if (n % 3 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// test the function
+console.log(isMultipleOf3(9)); // true
+console.log(isMultipleOf3(5)); // false
+//
+function isMultipleOf3(n) {
+    return n % 3 === 0 ? true : false;
+}
+
+Q3 -
+function isPositive(n) {
+    return n > 0 ? true : false;
+}
+//
+function isPositive(n) {
+    if (n > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// test the function
+console.log(isPositive(9)); // true
+console.log(isPositive(-5)); // false
+
+Q4 -
+function hasUnitsPlace4(n) {
+    if (n % 10 === 4) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// test the function
+console.log(hasUnitsPlace4(14)); // true
+console.log(hasUnitsPlace4(25)); // false
+//
+function hasUnitsPlace4(n) {
+    return n % 10 === 4 ? true : false;
+}
+
+Q-- Write function for mean,median and mode of given array.
+function calculateStatistics(arr) {
+    var sum = 0;
+    var mode = {};
+    var maxCount = 0;
+
+    // calculate mean
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    var mean = sum / arr.length;
+
+    // sort the array
+    arr.sort(function (a, b) { return a - b });
+
+    // calculate median
+    var median;
+    if (arr.length % 2 !== 0) {
+        median = arr[Math.floor(arr.length / 2)];
+    } else {
+        var mid = arr.length / 2;
+        median = (arr[mid - 1] + arr[mid]) / 2;
+    }
+
+    // calculate mode
+    for (var i = 0; i < arr.length; i++) {
+        if (mode[arr[i]] === undefined) {
+            mode[arr[i]] = 1;
+        } else {
+            mode[arr[i]]++;
+        }
+        if (mode[arr[i]] > maxCount) {
+            maxCount = mode[arr[i]];
+        }
+    }
+    var modes = [];
+    for (var num in mode) {
+        if (mode[num] === maxCount) {
+            modes.push(num);
+        }
+    }
+
+    return { mean: mean, median: median, mode: modes };
+}
+
+// test the function
+console.log(calculateStatistics([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+Q-- Write a function to reverse the given string in argument.
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+// test the function
+console.log(reverseString("hello"));  // "olleh"
+//
+function reverseString(str) {
+    var reversed = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+console.log(reverseString("hello"));  // "olleh"
+
+Q-- write a functions to count numbers of characters and words in a given string array.
+function countWordsAndChars(str) {
+    var words = str.split(' ');
+    var chars = str.split('');
+    return { words: words.length, chars: chars.length };
+}
+
+// test the function
+console.log(countWordsAndChars("The quick brown fox jumps over the lazy dog."));
+
+
+Q-- What is API?
+An API, or Application Programming Interface, is a set of rules and protocols that allows different software programs to communicate with each other. APIs can be used to access web-based software applications, operating systems, databases, and other services. They provide a way for developers to access and use the functionality of these systems without needing to know the underlying details of their implementation.
+
+Q -- What is Hoisting in JS?
+In JavaScript, hoisting is the behavior of moving declarations to the top of their scope. In other words, variable and function declarations are physically moved to the top of their containing scope, so that they are processed before any code is executed.
+
+However, only the declarations are hoisted, not the assignments. For example, if a variable is declared and assigned a value later in the code, only the declaration will be hoisted to the top and the assignment will stay in the place.
+
+This behavior can lead to unexpected results if a variable is used before it is declared, and it is a common source of bugs for new JavaScript developers.
+
+It's worth to mention that let and const, introduced in ES6, have a different behavior and they are not hoisted as var.
+
+Q -- What is difference between Interperter and Compiler?
+An interpreter and a compiler are both tools used to translate code written in a high-level programming language into machine code that can be executed by a computer. However, they do this in different ways.
+
+A compiler takes the entire program as input and generates a separate executable file that can be run on any compatible machine. Once the program is compiled, it doesn't need the compiler to run again, the executable can be run on any machine as long as it's compatible with the target architecture.
+
+An interpreter, on the other hand, reads the source code line by line, and executes the instructions immediately, without producing an executable file. This means that the interpreter must be present on the machine in order to run the program.
+
+In summary, a compiler converts the entire source code into machine code at once and produces a stand-alone executable file. An interpreter converts and executes the code line by line, and requires the interpreter to be present on the target machine.
+
+It's worth to mention that some languages like python, ruby, javascript are interpreted and some like C, C++, C# are compiled.
+
+Q -- What is REST APIs?
+A REST (Representational State Transfer) API is a type of web service that uses HTTP requests to GET, PUT, POST and DELETE data. An API for a website is code that allows two software programs to communicate with each other. In the case of REST APIs, the communication is made via HTTP protocol, and the requests and responses are typically formatted as JSON. RESTful APIs are used by many websites and mobile apps to retrieve and manipulate data from a server.
+
+Q -- What is HTTP?
+HTTP stands for Hypertext Transfer Protocol. It is the foundation of data communication for the World Wide Web. HTTP is a protocol for transmitting data over the internet, and it is the standard for web communication. When a user enters a URL (Uniform Resource Locator) into a web browser, the browser sends an HTTP request to the server where the website is hosted. The server then sends an HTTP response back to the browser, which includes the website's content. HTTP is based on the client-server model, which means that a client (e.g., a web browser) sends a request to a server, and the server sends a response.
+
+HTTP requests include a method (such as GET, POST, PUT, DELETE), a URI (Uniform Resource Identifier), and a set of headers. The server's response includes a status code, headers, and the requested resource (if the request was successful).
+
+HTTP is typically run over the Transmission Control Protocol (TCP), which is the underlying protocol for the internet.
+
+Q -- what is oops in javascript?
+OOP (Object-Oriented Programming) is a programming paradigm in which data and behavior are encapsulated within objects. JavaScript is an object-oriented programming language, and it supports the main concepts of OOP such as encapsulation, inheritance, and polymorphism.
+
+In JavaScript, an object is a collection of properties and methods. Properties are variables that store data, and methods are functions that define the behavior of an object. Objects can be created using object literals or object constructors.
+
+Encapsulation in JavaScript is achieved by using closures, which allow the data and methods of an object to be hidden from the outside world.
+
+Inheritance in JavaScript is achieved through the prototype chain. Every object in JavaScript has a prototype, which is an object from which it inherits properties and methods.
+
+Polymorphism in JavaScript is achieved through the use of function overloading, which allows a single function to have multiple implementations, depending on the input arguments.
+
+JavaScript also has a class syntax which introduced in ECMAScript 6, that allows developers to work with OOP in a more familiar way and it is similar to other OOP languages like Java or C#.
+
+Q -- write a program that will find all such numbers which are divisible by 7 but are not a multiple of 5 , between 1000 and 1200 (both included) the numbers obtained should be printed in a comma separated sequence on a single line.
+var result = "";
+for (var i = 1000; i <= 1200; i++) {
+    if (i % 7 == 0 && i % 5 != 0) {
+        result += i + ",";
+    }
+}
+console.log(result.slice(0, -1));
+
+
+Q --- how to use javascript in backend.....
+JavaScript can be used in the backend, also known as the server-side, by using a JavaScript runtime environment such as Node.js.
+
+Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers to run JavaScript code on the server. It uses the V8 JavaScript engine, which is the same engine that runs JavaScript in Google Chrome, to execute code. Node.js also includes a built-in package manager called npm (Node Package Manager) that allows developers to easily install and manage external libraries and modules.
+
+To use JavaScript in the backend with Node.js, you will need to install Node.js on your computer. Once Node.js is installed, you can create a new JavaScript file and run it using the node command in the command line.
+
+For example, you can create a simple server with the following code:
+
+Code
+const http = require('http');
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello, World!\n');
+});
+server.listen(3000, () => {
+    console.log('Server running at http://localhost:3000/');
+});
+
+This code creates a new HTTP server using the built-in http module and listens on port 3000. When a client makes a request to the server, it responds with "Hello, World!"
+
+You can run this code by saving it in a file named "server.js" and then running it with the command node server.js in the command line. The server will start running and you can access it at http://localhost:3000/
+
+Once you have a basic server running, you can use various Node.js modules and libraries to handle different types of requests and interact with databases, file systems, and other services.
+
+You can also use JavaScript frameworks and libraries such as Express, Koa, or Meteor to make building web applications with Node.js more convenient and efficient.
+
+
+
+
+Write a function that takes an array of integers as an argument and returns the second largest number in the array.
+
+Write a function that takes a string as an argument and returns the number of vowels in the string.
+
+Write a function that takes a string as an argument and returns the number of words in the string.
+
+Write a function that takes an array of integers as an argument and returns the sum of all the even numbers in the array.
+
+Write a function that takes a string as an argument and returns the string with all the vowels removed.
+
+Write a function that takes an array of integers as an argument and returns the average of all the numbers in the array.
+
+Write a function that takes a string as an argument and returns the first non-repeated character in the string.
+
+Write a function that takes an array of integers as an argument and returns the largest difference between any two numbers in the array.
+
+Write a function that takes a string as an argument and returns the string reversed.
+
+Write a function that takes an array of integers as an argument and returns the smallest number in the array.
