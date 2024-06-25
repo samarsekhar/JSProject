@@ -1,0 +1,49 @@
+<!-- CSS Properties: How to animation-delay use, then start the animation? -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Properties</title>
+    <style>
+      body {
+        display: grid;
+        padding: 100px;
+        place-items: center;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background: lime;
+        position: relative;
+        -webkit-animation: move 5s infinite;
+        -webkit-animation-delay: 5s;
+        animation: move 5s infinite;
+        animation-delay: 5s;
+      }
+      @-webkit-keyframes move {
+        from {
+          left: 0px;
+        }
+        to {
+          left: 100px;
+        }
+      }
+      @keyframes move {
+        from {
+          left: 0px;
+        }
+        to {
+          left: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animation">
+      <div class="2animation">
+        <strong>Pro Stack Samar</strong>
+      </div>
+    </div>
+  </body>
+</html>
