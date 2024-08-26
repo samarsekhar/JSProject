@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullscreen Menu | Vanilla JavaScript</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+      #menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #82eec1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+        transform: scale(0);
+        transition: 0.5s;
+      }
+
+      #menu-overlay.active {
+        transform: scale(1);
+      }
+      #menu-overlay ul {
+        position: relative;
+      }
+      #menu-overlay ul li {
+        position: relative;
+        list-style: none;
+        text-align: center;
+        display: block;
+      }
+      #menu-overlay ul li a {
+        position: relative;
+        text-decoration: none;
+        font-size: 3.5em;
+        padding: 0 10px;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+      #menu-overlay ul li a::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: #ff0;
+        transform: translateY(-50%) scaleX(0);
+        transform-origin: right;
+        transition: 0.5s transform;
+      }
+      #menu-overlay ul li a:hover::before {
+        transform: translateY(-50%) scaleX(1);
+        transform-origin: left;
+        transition: 0.5s transform;
+      }
+      #toggleIcon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: #ff0 url("open.png");
+        z-index: 1;
+        cursor: pointer;
+      }
+      #toggleIcon.active {
+        background: #ff0 url("close.png");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toggleIcon" onclick="menuToggle()"></div>
+    <div id="menu-overlay">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <script>
+      function menuToggle() {
+        var nav = document.getElementById("menu-overlay");
+        nav.classList.toggle("active");
+        var nav = document.getElementById("toggleIcon");
+        nav.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
